@@ -114,7 +114,7 @@ async function fetchPost(postId) {
             comments: mockPost.comments
         };
         
-        // 실제 API 호출 (서버 연동 시 위의 더미 데이터 코드를 주석 처리하고 아래 코드 활성화)
+        // 실제 API 호출
         /*
         const response = await fetch(`/api/posts/${postId}`, {
             method: 'GET',
