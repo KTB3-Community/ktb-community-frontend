@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 목록 - 아무 말 대잔치</title>
+    <link rel="stylesheet" href="posts.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="logo">아무 말 대잔치</div>
+            <div class="header-right">
+                <button class="write-button" id="writeButton">게시글 작성</button>
+                <div class="profile-wrapper">
+                    <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
+                        <div class="profile-icon" aria-label="사용자 프로필"></div>
+                    </button>
+                    <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
+                        <a href="edit-profile.html" class="menu-item">회원정보수정</a>
+                        <a href="edit-password.html" class="menu-item">비밀번호수정</a>
+                        <a href="#" class="menu-item" id="logoutLink">로그아웃</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <section class="intro">
+                <p class="greeting">안녕하세요,</p>
+                <p class="greeting">아무 말 대잔치 게시판 입니다.</p>
+            </section>
+
+            <section class="posts-section">
+                <div class="posts-list" id="postsList" aria-live="polite"></div>
+                <div class="loading" id="loading" role="status" aria-live="assertive">
+                    <span class="spinner"></span>
+                    <span class="loading-text">불러오는 중...</span>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="logout.js"></script>
+    <script src="profile-dropdown.js"></script>
+    <script src="posts.js"></script>
+</body>
+</html>

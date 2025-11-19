@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정 - 아무 말 대잔치</title>
+    <link rel="stylesheet" href="edit-post.css">
+</head>
+<body>
+    <div class="page">
+        <header class="top-bar">
+            <button type="button" class="back-button" aria-label="게시글 상세로 돌아가기"></button>
+            <h1 class="top-title">아무 말 대잔치</h1>
+            <div class="header-actions">
+                <div class="profile-wrapper">
+                    <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
+                        <div class="profile-icon" aria-label="사용자 프로필"></div>
+                    </button>
+                    <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
+                        <a href="edit-profile.html" class="menu-item">회원정보수정</a>
+                        <a href="edit-password.html" class="menu-item">비밀번호수정</a>
+                        <a href="#" class="menu-item" id="logoutLink">로그아웃</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="form-container">
+                <h2 class="form-title">게시글 수정</h2>
+                <form class="edit-form" id="editForm">
+                    <div class="form-group">
+                        <label for="title">제목*</label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            maxlength="26"
+                            placeholder="제목을 입력해주세요"
+                            value="제목 1"
+                            required
+                        >
+                        <div class="input-helper" aria-live="polite">
+                            <span id="titleCount">5</span> / 26
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">내용*</label>
+                        <textarea
+                            id="content"
+                            name="content"
+                            rows="10"
+                            placeholder="내용을 입력해주세요"
+                            required
+                        >무엇을 얘기할까요? 아무말이네요, 해본 적은 없지만 말입니다만. 우리는 매일 새로운 경험을 하고 살아야 행복합니다. 다양한 아이디어와 도전이 있겠죠, 그것들이 우리의 삶을 더욱 지혜롭게 만들어줍니다. 또한 오늘도 주변의 사람들과 소통하며 서로를 지지해 봅시다. 그래서 우리 모두 웃음을 잃지 않길 바랍니다.
+
+자연 속에선 아무말이라도, 우리 주변 사람들과 함께하는 아름다움과 신뢰감을 얻고 있다는 사실을, 또한, 매일을 좋은 날로 꾸미는 즐거운 순간임을 잊지 말아요. 지금은 우리의 생각과 감정을 자유롭게 나눌 때입니다.
+
+아무말이지만, 지혜로운 말들 한 문장을 이용해 이해하기 쉽게 말을 엮어보겠습니다. 우리는 새로운 지식의 바다에서 새로운 것을 발견할 수 있으며, 이야기가 우리의 도전 의지를 이끌어주는 시대에 살고 있죠! 그러니요, 이제부터 예쁜 말과 긍정적 마음으로 가득 채워줍시다. 서로의 경험을 경청하고 항상 앞으로 나아가는 것이 중요한다고 생각합니다.</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">이미지</label>
+                        <div class="image-field">
+                            <div class="image-preview" id="imagePreview" aria-label="기존 업로드 이미지"></div>
+                            <div class="file-actions">
+                                <label class="file-label" for="image">파일 선택</label>
+                                <span class="file-name" id="fileName">기존 파일명</span>
+                            </div>
+                            <input type="file" id="image" name="image" accept="image/*">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">수정하기</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="logout.js"></script>
+    <script src="profile-dropdown.js"></script>
+    <script src="edit-post.js"></script>
+</body>
+</html>

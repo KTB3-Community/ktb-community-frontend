@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #111111;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 24px 60px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #b0b0b0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.profile-wrapper {
+    position: absolute;
+    right: 60px;
+    top: 24px;
+    display: inline-block;
+}
+
+.profile-toggle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: url('profile-placeholder.svg') center/cover no-repeat, #d9d9d9;
+    cursor: pointer;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    min-width: 160px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.profile-menu.open {
+    display: flex;
+}
+
+.profile-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: url('profile-placeholder.svg') center/cover no-repeat, #d9d9d9;
+    transition: background-color 0.2s ease;
+}
+
+.profile-toggle:hover .profile-icon {
+    background-color: #e9e9e9;
+}
+
+.profile-menu a,
+.menu-item {
+    padding: 12px 18px;
+    font-size: 15px;
+    color: #333333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.profile-menu a:hover,
+.profile-menu a:focus,
+.menu-item:hover,
+.menu-item:focus {
+    background-color: #e9e9e9;
+    outline: none;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 24px 100px;
+}
+
+.form-section {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.avatar-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: url('profile-placeholder.svg') center/cover no-repeat, #d0d0d0;
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar::after {
+    content: '변경';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.avatar-label {
+    font-size: 15px;
+    color: #777777;
+}
+
+.profile-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #d9d9d9;
+    font-size: 15px;
+    background-color: #ffffff;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    border-color: #7f6aee;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(127, 106, 238, 0.15);
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+    color: #666666;
+    cursor: default;
+}
+
+.helper-text {
+    min-height: 18px;
+    font-size: 13px;
+    color: #ff4d6d;
+    visibility: hidden;
+}
+
+.helper-text.show {
+    visibility: visible;
+}
+
+.primary-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background-color: #aca0eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.primary-button:hover,
+.primary-button:focus {
+    background-color: #7f6aee;
+    outline: none;
+}
+
+.link-button {
+    align-self: center;
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: #ff4d6d;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.link-button:hover,
+.link-button:focus {
+    background-color: rgba(255, 77, 109, 0.12);
+    outline: none;
+}
+
+.toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 40px);
+    background-color: #7f6aee;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 20;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.confirm-modal {
+    border: none;
+    border-radius: 18px;
+    padding: 30px 32px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+}
+
+.confirm-modal[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.confirm-modal::backdrop {
+    background: transparent;
+}
+
+.confirm-modal h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.confirm-modal p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 24px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.modal-button {
+    padding: 10px 24px;
+    border-radius: 12px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modal-button.cancel {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.modal-button.confirm {
+    background-color: #aca0eb;
+    color: #ffffff;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 18px 24px;
+    }
+
+    .profile-wrapper {
+        right: 24px;
+    }
+
+    .content {
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+}
