@@ -256,12 +256,7 @@ let editingCommentId = null;
 let pendingDeleteCommentId = null;
 
 function updateLikeButton() {
-    likeButton.classList.remove('disabled', 'enabled');
-    if (likeEnabled) {
-        likeButton.classList.add('enabled');
-    } else {
-        likeButton.classList.add('disabled');
-    }
+    likeButton.classList.toggle('enabled', likeEnabled);
 }
 
 function updateCommentCount() {
@@ -406,7 +401,7 @@ function handleModalButtons(dialog, callback) {
 }
 
 backButton.addEventListener('click', () => {
-    window.location.href = 'posts.html';
+    window.location.href = '../posts/posts.html';
 });
 
 if (editPostButton) {
@@ -445,13 +440,9 @@ modalOverlay.addEventListener('click', () => {
 });
 
 likeButton.addEventListener('click', () => {
-    if (!likeEnabled) {
-        likeEnabled = true;
-        postState.likes += 1;
-    } else {
-        likeEnabled = false;
-        postState.likes = Math.max(0, postState.likes - 1);
-    }
+    likeEnabled = !likeEnabled;
+    postState.likes += likeEnabled ? 1 : -1;
+    if (postState.likes < 0) postState.likes = 0;
     likeCountEl.textContent = formatCount(postState.likes);
     updateLikeButton();
 });
@@ -554,7 +545,7 @@ async function initPost() {
         if (postContainer) {
             postContainer.classList.remove('is-loading');
         }
-        window.location.href = 'posts.html';
+        window.location.href = '../posts/posts.html';
     }
 }
 

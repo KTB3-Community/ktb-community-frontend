@@ -33,10 +33,13 @@ function handleLogout() {
     });
 }
 
-// 제공된 엘리먼트에 로그아웃 클릭 이벤트 연결
+// 로그아웃 클릭 이벤트 연결
 function initLogout(element) {
     if (!element) return;
     
+    // 로그인 페이지로 리다이렉트
+    const redirectUrl = element.dataset.redirect || element.getAttribute('href') || 'login.html';
+
     element.addEventListener('click', async (e) => {
         e.preventDefault();
         
@@ -46,7 +49,7 @@ function initLogout(element) {
         alert('로그아웃되었습니다.');
         
         // 로그인 페이지로 이동
-        window.location.href = 'login.html';
+        window.location.href = redirectUrl;
     });
 }
 

@@ -2,8 +2,9 @@
 const postsList = document.getElementById('postsList');
 const loadingIndicator = document.getElementById('loading');
 const writeButton = document.getElementById('writeButton');
+const riotLinkButton = document.getElementById('riotLinkButton');
 
-const getPostDetailUrl = (postId) => (`post.html?id=${postId}`);
+const getPostDetailUrl = (postId) => (`../post/post.html?id=${postId}`);
 // 상세 페이지에서 사용할 ID를 세션에 저장
 const persistPostId = (postId) => {
     if (postId !== null && postId !== undefined && !Number.isNaN(postId)) {
@@ -41,7 +42,7 @@ function formatDate(date) {
 function createMockPost(index) {
     const now = new Date();
     now.setHours(now.getHours() - index);
-    const baseTitle = `제목 ${index + 1} - 아무 말 대잔치의 긴 제목 예시`; 
+    const baseTitle = `제목 ${index + 1} - TFT 전략 이야기`; 
 
     return {
         id: index,
@@ -163,7 +164,7 @@ const observer = new IntersectionObserver(handleScroll, {
 observer.observe(sentinel);
 
 writeButton.addEventListener('click', () => {
-    window.location.href = 'make-post.html';
+    window.location.href = '../make-post/make-post.html';
 });
 
 // 프로필 드롭다운 초기화 (profile-dropdown.js의 함수 사용)
@@ -171,3 +172,25 @@ initProfileDropdown();
 
 // 초기 데이터 로드
 loadPosts();
+
+if (riotLinkButton) {
+    let riotLabel = riotLinkButton.querySelector('.riot-link-label');
+    if (!riotLabel) {
+        riotLabel = riotLinkButton.querySelector('span:not(.riot-logo-icon)');
+        if (riotLabel) {
+            riotLabel.classList.add('riot-link-label');
+        }
+    }
+    let isRiotLinked = false;
+    riotLinkButton.addEventListener('click', () => {
+        if (isRiotLinked) return;
+        isRiotLinked = true;
+        if (riotLabel) {
+            riotLabel.textContent = 'Riot 계정 연동 완료';
+        }
+        riotLinkButton.classList.add('linked');
+        riotLinkButton.disabled = true;
+        alert('Riot 계정이 연동되었습니다.');
+    });
+}
+

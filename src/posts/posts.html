@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시글 목록 - 아무 말 대잔치</title>
+    <title>TFT Nexus - 게시글 목록</title>
     <link rel="stylesheet" href="posts.css">
 </head>
-<body>
-    <div class="page-wrapper">
-        <header class="page-header">
-            <div class="logo">아무 말 대잔치</div>
+<body class="posts-page">
+    <div class="background nebula"></div>
+    <div class="background grid"></div>
+
+    <header class="posts-header">
+        <div class="logo" role="link" tabindex="0" onclick="window.location.href='posts.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='posts.html';}">TFT Nexus</div>
             <div class="header-right">
                 <button class="write-button" id="writeButton">게시글 작성</button>
                 <div class="profile-wrapper">
@@ -17,19 +19,58 @@
                         <div class="profile-icon" aria-label="사용자 프로필"></div>
                     </button>
                     <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
-                        <a href="edit-profile.html" class="menu-item">회원정보수정</a>
-                        <a href="edit-password.html" class="menu-item">비밀번호수정</a>
-                        <a href="#" class="menu-item" id="logoutLink">로그아웃</a>
+                    <a href="../edit-profile/edit-profile.html" class="menu-item">회원정보수정</a>
+                    <a href="../edit-password/edit-password.html" class="menu-item">비밀번호수정</a>
+                    <a href="../login/login.html" class="menu-item" id="logoutLink">로그아웃</a>
                     </nav>
                 </div>
             </div>
         </header>
 
-        <main class="page-main">
-            <section class="intro">
-                <p class="greeting">안녕하세요,</p>
-                <p class="greeting">아무 말 대잔치 게시판 입니다.</p>
+    <main class="posts-layout">
+        <aside class="user-panel">
+            <section class="user-card">
+                <div class="user-header">
+                    <div class="user-avatar" aria-hidden="true"></div>
+                    <div>
+                        <p class="user-label">Logged in as</p>
+                        <strong class="user-name">Moonlight#KR1</strong>
+                        <span class="user-tier">Challenger · 50 LP · KR</span>
+                    </div>
+                </div>
+                <dl class="user-stats">
+                    <div>
+                        <dt>게시글</dt>
+                        <dd>128</dd>
+                    </div>
+                    <div>
+                        <dt>좋아요</dt>
+                        <dd>305</dd>
+                    </div>
+                    <div>
+                        <dt>댓글</dt>
+                        <dd>130</dd>
+                    </div>
+                </dl>
+                <a href="../profile/profile.html" class="user-action" role="button">프로필 보기</a>
+                <div class="riot-link-row">
+                    <button type="button" class="riot-link-button" id="riotLinkButton">
+                        <span class="riot-logo-icon" aria-hidden="true"></span>
+                        <span>Riot 계정 연동하기</span>
+                    </button>
+                    <p class="riot-link-hint">연동하면 전적 데이터를 자동으로 불러옵니다.</p>
+                </div>
             </section>
+        </aside>
+
+        <section class="feed-panel">
+            <div class="feed-headline">
+                <div>
+                    <p class="chip">COMMUNITY FEED</p>
+                    <h1>최신 전략 이야기를 확인해보세요</h1>
+                    <p>관심 있는 게시글을 골라 전략 토의에 참여하세요.</p>
+                </div>
+            </div>
 
             <section class="posts-section">
                 <div class="posts-list" id="postsList" aria-live="polite"></div>
@@ -38,10 +79,10 @@
                     <span class="loading-text">불러오는 중...</span>
                 </div>
             </section>
+            </section>
         </main>
-    </div>
-    <script src="logout.js"></script>
-    <script src="profile-dropdown.js"></script>
+    <script src="../logout/logout.js"></script>
+    <script src="../profile-dropdown/profile-dropdown.js"></script>
     <script src="posts.js"></script>
 </body>
 </html>

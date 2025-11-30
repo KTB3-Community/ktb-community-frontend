@@ -3,53 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원정보 수정 - 아무 말 대잔치</title>
+    <title>TFT Nexus - 회원정보 수정</title>
     <link rel="stylesheet" href="edit-profile.css">
 </head>
-<body>
-    <div class="page">
-        <header class="top-bar">
-            <h1 class="logo">아무 말 대잔치</h1>
-            <div class="profile-wrapper">
-                <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
-                    <div class="profile-icon" aria-label="사용자 프로필"></div>
-                </button>
-                <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
-                    <a href="edit-profile.html" class="menu-item">회원정보수정</a>
-                    <a href="edit-password.html" class="menu-item">비밀번호수정</a>
-                    <a href="#" class="menu-item" id="logoutLink">로그아웃</a>
-                </nav>
+<body class="edit-profile-page">
+    <div class="background nebula"></div>
+    <div class="background grid"></div>
+
+    <header class="edit-profile-header">
+        <div class="brand-block">
+            <div class="brand-mark">TFT</div>
+            <div>
+                <p class="brand-label" role="link" tabindex="0" onclick="window.location.href='../posts/posts.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../posts/posts.html';}">TFT NEXUS</p>
+                <strong>회원정보 수정</strong>
             </div>
-        </header>
+        </div>
+        <div class="profile-wrapper">
+            <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
+                <div class="profile-icon" aria-label="사용자 프로필"></div>
+            </button>
+            <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
+                <a href="../edit-profile/edit-profile.html" class="menu-item">회원정보수정</a>
+                <a href="../edit-password/edit-password.html" class="menu-item">비밀번호수정</a>
+                <a href="../login/login.html" class="menu-item" id="logoutLink">로그아웃</a>
+            </nav>
+        </div>
+    </header>
 
-        <main class="content">
-            <section class="form-section">
-                <h2 class="section-title">회원정보수정</h2>
+    <main class="edit-profile-wrapper">
+        <section class="profile-card">
+            <div class="card-headline">
+                <p class="chip">PROFILE</p>
+                <h2>전략가 정보를 변경해보세요</h2>
+                <p>닉네임과 프로필 사진을 수정하여 커뮤니티에서 보여질 나만의 모습을 설정할 수 있습니다.</p>
+            </div>
 
-                <div class="avatar-area">
-                    <div class="avatar" id="avatar" tabindex="0" role="button" aria-label="프로필 사진 변경"></div>
-                    <input type="file" id="avatarInput" accept="image/*" hidden>
-                    <p class="avatar-label">프로필 사진*</p>
+            <div class="avatar-area">
+                <div class="avatar" id="avatar" tabindex="0" role="button" aria-label="프로필 사진 변경"></div>
+                <input type="file" id="avatarInput" accept="image/*" hidden>
+                <p class="avatar-label">프로필 사진*</p>
+            </div>
+
+            <form class="profile-form" id="profileForm" novalidate>
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" value="startupcode@gmail.com" readonly>
                 </div>
 
-                <form class="profile-form" id="profileForm" novalidate>
-                    <div class="form-group">
-                        <label for="email">이메일</label>
-                        <input type="email" id="email" value="startupcode@gmail.com" readonly>
-                    </div>
+                <div class="form-group">
+                    <label for="nickname">닉네임</label>
+                    <input type="text" id="nickname" placeholder="닉네임을 입력해주세요" value="스타트업코드" autocomplete="off">
+                    <p class="helper-text" id="nicknameHelper"></p>
+                </div>
 
-                    <div class="form-group">
-                        <label for="nickname">닉네임</label>
-                        <input type="text" id="nickname" placeholder="닉네임을 입력해주세요" value="스타트업코드" autocomplete="off">
-                        <p class="helper-text" id="nicknameHelper"></p>
-                    </div>
-
-                    <button type="button" class="primary-button" id="updateButton">수정하기</button>
-                    <button type="button" class="link-button" id="withdrawButton">회원 탈퇴</button>
-                </form>
-            </section>
-        </main>
-    </div>
+                <button type="button" class="primary-button" id="updateButton">완료</button>
+                <button type="button" class="link-button" id="withdrawButton">회원 탈퇴</button>
+            </form>
+        </section>
+    </main>
 
     <dialog class="confirm-modal" id="withdrawModal">
         <h3>회원탈퇴 하시겠습니까?</h3>
@@ -63,8 +74,8 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite">수정 완료</div>
 
-    <script src="logout.js"></script>
-    <script src="profile-dropdown.js"></script>
+    <script src="../logout/logout.js"></script>
+    <script src="../profile-dropdown/profile-dropdown.js"></script>
     <script src="edit-profile.js"></script>
 </body>
 </html>

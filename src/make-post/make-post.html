@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시글 작성 - 아무 말 대잔치</title>
+    <title>TFT Nexus - 게시글 작성</title>
     <link rel="stylesheet" href="make-post.css">
 </head>
-<body>
-    <div class="page">
-        <header class="top-bar">
-            <button class="back-button" aria-label="뒤로가기"></button>
-            <h1 class="logo">아무 말 대잔치</h1>
-            <div class="profile-wrapper">
-                <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
-                    <div class="profile-icon" aria-label="사용자 프로필"></div>
-                </button>
-                <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
-                    <a href="edit-profile.html" class="menu-item">회원정보수정</a>
-                    <a href="edit-password.html" class="menu-item">비밀번호수정</a>
-                    <a href="#" class="menu-item" id="logoutLink">로그아웃</a>
-                </nav>
+<body class="make-post-page">
+    <div class="background nebula"></div>
+    <div class="background grid"></div>
+
+    <header class="make-post-header">
+        <div class="brand-block">
+            <div class="brand-mark">TFT</div>
+            <div>
+                <p class="brand-label" role="link" tabindex="0" onclick="window.location.href='../posts/posts.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../posts/posts.html';}">TFT NEXUS</p>
+                <strong>게시글 작성</strong>
             </div>
+        </div>
+        <button type="button" class="back-button" onclick="window.location.href='../posts/posts.html'">목록으로 돌아가기</button>
         </header>
 
-        <main class="content">
-            <section class="form-card">
-                <h2 class="title">게시글 작성</h2>
+    <main class="make-post-wrapper">
+        <section class="make-post-card">
+            <div class="form-headline">
+                <p class="chip">NEW POST</p>
+                <h2>전략 아이디어를 공유해보세요</h2>
+                <p>제목과 내용을 작성하고 이미지를 추가해 커뮤니티에 공유할 수 있습니다.</p>
+            </div>
+
                 <form id="makePostForm" class="form" novalidate>
                     <div class="form-group">
-                        <label for="postTitle">제목*</label>
+                    <label for="postTitle">제목 *</label>
                         <input type="text" id="postTitle" maxlength="26" placeholder="제목을 입력해주세요. (최대 26글자)">
                     </div>
 
                     <div class="form-group">
-                        <label for="postBody">내용*</label>
-                        <textarea id="postBody" rows="10" placeholder="내용을 입력하세요."></textarea>
+                    <label for="postBody">내용 *</label>
+                    <textarea id="postBody" rows="10" placeholder="전략, 조합, 경험 등을 자유롭게 작성해주세요."></textarea>
                     </div>
 
                     <div class="form-group">
@@ -51,10 +54,9 @@
                 </form>
             </section>
         </main>
-    </div>
 
-    <script src="logout.js"></script>
-    <script src="profile-dropdown.js"></script>
+    <script src="../logout/logout.js"></script>
+    <script src="../profile-dropdown/profile-dropdown.js"></script>
     <script src="make-post.js"></script>
 </body>
 </html>

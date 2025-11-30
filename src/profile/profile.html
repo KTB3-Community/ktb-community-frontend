@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFT Nexus - 사용자 프로필</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body class="profile-page">
+    <div class="background champion-bg" id="championBackground"></div>
+
+    <header class="profile-header">
+        <div class="logo" role="link" tabindex="0" onclick="window.location.href='../posts/posts.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../posts/posts.html';}">TFT Nexus</div>
+        <div class="header-right">
+            <button type="button" class="back-button" onclick="window.location.href='../posts/posts.html'">게시글 목록</button>
+            <div class="profile-wrapper">
+                <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
+                    <div class="profile-icon" aria-label="사용자 프로필"></div>
+                </button>
+                <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
+                    <a href="../edit-profile/edit-profile.html" class="menu-item">회원정보수정</a>
+                    <a href="../edit-password/edit-password.html" class="menu-item">비밀번호수정</a>
+                    <a href="../login/login.html" class="menu-item" id="logoutLink">로그아웃</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-layout">
+        <section class="profile-card">
+            <div class="profile-top">
+                <div class="profile-avatar"></div>
+                <div class="profile-info">
+                    <p class="profile-label">Summoner</p>
+                    <h1>Moonlight#KR1</h1>
+                    <div class="profile-tier-info">
+                        <img class="tier-image" id="tierImage" src="" alt="" style="display: none;">
+                        <span class="profile-tier">
+                            <span id="tierText">-</span>
+                            <span id="rankText" style="display: none;"></span>
+                            <span id="lpText">0 LP</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <dl class="profile-stats">
+                <div>
+                    <dt>게시글</dt>
+                    <dd>128</dd>
+                </div>
+                <div>
+                    <dt>좋아요</dt>
+                    <dd>4,512</dd>
+                </div>
+                <div>
+                    <dt>댓글</dt>
+                    <dd>38</dd>
+                </div>
+            </dl>
+            <div class="riot-link-row">
+                <button type="button" class="riot-link-button linked" disabled>
+                    <span class="riot-logo-icon" aria-hidden="true"></span>
+                    <span>Riot 계정 연동 완료</span>
+                </button>
+                <p class="riot-link-hint">연동된 계정에서 실시간 전적을 가져옵니다.</p>
+            </div>
+        </section>
+
+        <section class="profile-content">
+            <section class="rank-info-card">
+                <div class="rank-info-main">
+                    <div class="rank-info-left">
+                        <div class="rank-display">
+                            <img class="rank-image-large" id="rankImageLarge" src="" alt="" style="display: none;">
+                            <div class="rank-details">
+                                <div class="rank-tier-row">
+                                    <div class="rank-tier-text" id="rankTierText">-</div>
+                                    <div class="rank-division-text" id="rankDivisionText"></div>
+                                </div>
+                                <div class="rank-lp-text" id="rankLpText">0 LP</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rank-info-right">
+                        <div class="top-champion-section">
+                            <h3 class="top-champion-title">가장 많이 픽한 챔프</h3>
+                            <div class="top-champion-display is-loading" id="topChampionDisplay">
+                                <div class="top-champion-skeleton"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wins-loss-card">
+                    <header class="wins-loss-header">
+                        <p class="chip">PERFORMANCE</p>
+                        <div>
+                            <h3>최근 승/패 리포트</h3>
+                            <p>실시간 랭크 기록을 기반으로 계산됩니다.</p>
+                        </div>
+                    </header>
+                    <div class="wins-loss-body">
+                        <div class="wins-losses-chart">
+                            <svg class="pie-chart" viewBox="0 0 100 100">
+                                <circle class="pie-background" cx="50" cy="50" r="45"></circle>
+                                <circle class="pie-segment wins-segment" cx="50" cy="50" r="45"></circle>
+                                <circle class="pie-segment losses-segment" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="chart-label">
+                                <div class="wins-value" id="winsValue">0</div>
+                                <div class="losses-value" id="lossesValue">0</div>
+                            </div>
+                        </div>
+                        <div class="wins-losses-legend">
+                            <div class="legend-item">
+                                <span class="legend-color wins-color"></span>
+                                <div>
+                                    <strong>1등 (Wins)</strong>
+                                    <p>상위 1등 달성 횟수</p>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color losses-color"></span>
+                                <div>
+                                    <strong>2~8등 (Losses)</strong>
+                                    <p>상위권 이외 순위</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="record-card">
+                <header>
+                    <p class="chip">MATCH HISTORY</p>
+                    <h2>전적 기록</h2>
+                </header>
+                <div class="match-list" id="matchList">
+                    <!-- 전적 리스트 -->
+                </div>
+                <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                    <p>전적을 불러오는 중...</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="../logout/logout.js"></script>
+    <script src="../profile-dropdown/profile-dropdown.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>
+

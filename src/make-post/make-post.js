@@ -45,13 +45,13 @@ form.addEventListener('submit', (e) => {
   const hasTitle = titleInput.value.trim().length > 0;
   const hasBody = bodyInput.value.trim().length > 0;
   if (!hasTitle || !hasBody) {
-    helper.textContent = '*제목, 내용을 모두 작성해주세요.';
+    helper.textContent = '* 제목, 내용을 모두 작성해주세요.';
     updateState();
     return;
   }
   // 성공 처리 (서버 연동 시 업로드 처리 및 해당 post 페이지로 리다이렉트)
   alert('게시글이 등록되었습니다.');
-  window.location.href = 'posts.html';
+  window.location.href = '../posts/posts.html';
 });
 
 updateState();

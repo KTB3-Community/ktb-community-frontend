@@ -45,7 +45,7 @@ avatarInput.addEventListener('change', (event) => {
 const showHelper = (message) => {
     helper.textContent = message;
     helper.classList.toggle('show', Boolean(message));
-};
+}; 
 
 // 저장 완료 토스트 표시
 const showToast = () => {
@@ -107,7 +107,9 @@ nicknameInput.addEventListener('input', () => {
 updateButton.addEventListener('click', () => {
     if (validateNickname()) {
         showHelper('');
-        showToast();
+        showToast(() => {
+            window.location.href = '../posts/posts.html';
+        });
     }
 });
 

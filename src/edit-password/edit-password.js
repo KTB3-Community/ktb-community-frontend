@@ -6,6 +6,8 @@ const confirmHelp = document.getElementById('confirmHelp');
 const submitBtn = document.getElementById('submitBtn');
 const form = document.getElementById('passwordForm');
 const toast = document.getElementById('toast');
+const togglePasswordBtn = document.getElementById('togglePassword');
+const togglePasswordConfirmBtn = document.getElementById('togglePasswordConfirm');
 
 const PASSWORD_RULE_MSG = '* 비밀번호는 8자 이상, 20자 이하이며, 대문자, 소문자, 숫자, 특수문자를 각각 최소 1개 포함해야 합니다.';
 
@@ -50,6 +52,26 @@ passwordInput.addEventListener('input', updateState);
 confirmInput.addEventListener('input', updateState);
 passwordInput.addEventListener('blur', updateState);
 confirmInput.addEventListener('blur', updateState);
+
+if (togglePasswordBtn) {
+    togglePasswordBtn.addEventListener('click', () => {
+        const isText = passwordInput.type === 'text';
+        passwordInput.type = isText ? 'password' : 'text';
+        togglePasswordBtn.textContent = isText ? '보기' : '숨기기';
+        togglePasswordBtn.setAttribute('aria-pressed', String(!isText));
+        passwordInput.focus();
+    });
+}
+
+if (togglePasswordConfirmBtn) {
+    togglePasswordConfirmBtn.addEventListener('click', () => {
+        const isText = confirmInput.type === 'text';
+        confirmInput.type = isText ? 'password' : 'text';
+        togglePasswordConfirmBtn.textContent = isText ? '보기' : '숨기기';
+        togglePasswordConfirmBtn.setAttribute('aria-pressed', String(!isText));
+        confirmInput.focus();
+    });
+}
 
 // 제출 시 최종 검증 후 토스트 표시
 form.addEventListener('submit', (e)=>{

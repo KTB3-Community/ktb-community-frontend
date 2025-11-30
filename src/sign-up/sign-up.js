@@ -16,6 +16,8 @@ const nicknameHelp = document.getElementById('nicknameHelp');
 
 const submitBtn = document.getElementById('submitBtn');
 const form = document.getElementById('signUpForm');
+const toggleSignUpPasswordBtn = document.getElementById('toggleSignUpPassword');
+const toggleSignUpPasswordConfirmBtn = document.getElementById('toggleSignUpPasswordConfirm');
 
 let avatarLocked = false; // 업로드 완료 시 재업로드 막기
 let avatarTouched = false;
@@ -63,7 +65,9 @@ avatarInput.addEventListener('change', (e) => {
 
 avatarRemove.addEventListener('click', () => {
   // 이미지 제거 후 재업로드 가능하게
-  avatar.style.background = '#d0d0d0';
+  avatar.style.background = '';
+  avatar.style.backgroundImage = '';
+  avatar.classList.remove('has-image');
   avatar.querySelector('.avatar-plus').style.display = '';
   avatarRemove.hidden = true;
   avatarLocked = false;
@@ -211,7 +215,27 @@ form.addEventListener('submit', (e) => {
   const ok = updateState(true);
   if (!ok) return;
     alert('회원가입이 완료되었습니다.');
-    window.location.href = 'login.html';
+    window.location.href = '../login/login.html';
 });
 
 updateState(false);
+
+if (toggleSignUpPasswordBtn) {
+  toggleSignUpPasswordBtn.addEventListener('click', () => {
+    const isText = passwordInput.type === 'text';
+    passwordInput.type = isText ? 'password' : 'text';
+    toggleSignUpPasswordBtn.textContent = isText ? '보기' : '숨기기';
+    toggleSignUpPasswordBtn.setAttribute('aria-pressed', String(!isText));
+    passwordInput.focus();
+  });
+}
+
+if (toggleSignUpPasswordConfirmBtn) {
+  toggleSignUpPasswordConfirmBtn.addEventListener('click', () => {
+    const isText = confirmInput.type === 'text';
+    confirmInput.type = isText ? 'password' : 'text';
+    toggleSignUpPasswordConfirmBtn.textContent = isText ? '보기' : '숨기기';
+    toggleSignUpPasswordConfirmBtn.setAttribute('aria-pressed', String(!isText));
+    confirmInput.focus();
+  });
+}
