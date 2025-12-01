@@ -18,8 +18,20 @@
                 <strong>게시글 작성</strong>
             </div>
         </div>
-        <button type="button" class="back-button" onclick="window.location.href='../posts/posts.html'">목록으로 돌아가기</button>
-        </header>
+        <div class="header-actions">
+            <button type="button" class="back-button" onclick="window.location.href='../posts/posts.html'">목록으로 돌아가기</button>
+            <div class="profile-wrapper">
+                <button type="button" class="profile-toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
+                    <div class="profile-icon" aria-label="사용자 프로필"></div>
+                </button>
+                <nav class="profile-menu" id="profileMenu" aria-label="사용자 메뉴">
+                    <a href="../edit-profile/edit-profile.html" class="menu-item">회원정보수정</a>
+                    <a href="../edit-password/edit-password.html" class="menu-item">비밀번호수정</a>
+                    <a href="../login/login.html" class="menu-item" id="logoutLink">로그아웃</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
     <main class="make-post-wrapper">
         <section class="make-post-card">
