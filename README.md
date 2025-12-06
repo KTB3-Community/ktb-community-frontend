@@ -2,19 +2,19 @@
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow) ![HTML5](https://img.shields.io/badge/HTML5-E34F26) ![CSS3](https://img.shields.io/badge/CSS3-1572B6)
 
-> **롤토체스(TFT) 유저들을 위한 전적 검색 및 커뮤니티 플랫폼**
+> **롤토체스(TFT) 유저들을 위한 전적 조회 및 커뮤니티 플랫폼**
 
 <br/>
 
-## ✨ Key Features
-- **📊 전적 시각화**: 유저의 최근 승률, 전적 기록, 가장 많이 선택한 챔프 정보를 시각화하여 제공합니다.
-- **🗣️ 커뮤니티**: 덱 추천, 팁 공유, 자유 게시판 등 유저 간 실시간 소통 기능을 제공합니다.
-- **🔍 전적 검색**: 소환사 이름을 입력하여 실시간 게임 데이터와 과거 기록을 조회할 수 있습니다.
-- **📱 반응형 디자인**: PC와 모바일 환경 모두에 최적화된 UI/UX를 제공합니다.
+## Key Features
+- **전적 시각화**: 유저의 최근 승률, 전적 기록, 가장 많이 선택한 챔프 정보를 시각화하여 제공합니다.
+- **커뮤니티**: 덱 추천, 팁 공유, 자유 게시판 등 유저 간 실시간 소통 기능을 제공합니다.
+- **전적 검색**: 소환사 이름을 입력하여 실시간 게임 데이터와 과거 기록을 조회할 수 있습니다.
+- **반응형 디자인**: PC와 모바일 환경 모두에 최적화된 UI/UX를 제공합니다.
 
 <br/>
 
-## 🛠 Tech Stack
+## Tech Stack
 외부 프레임워크(React, Vue 등) 없이 **DOM 조작과 상태 관리의 본질**을 이해하기 위해 순수 자바스크립트를 사용했습니다.
 
 | Category | Tech |
@@ -26,14 +26,14 @@
 <br/>
 
 // 이미지 첨부 예정
-## 📸 Screenshots
+## Screenshots
 | 전적 검색 / 대시보드 | 커뮤니티 게시판 |
 | :--: | :--: |
 | <img src="이미지경로/stats_dashboard.png" width="400" alt="전적화면" /> | <img src="이미지경로/community_list.png" width="400" alt="게시판" /> |
 
 <br/>
 
-## 📂 Folder Structure
+## Folder Structure
 컴포넌트 기반 프레임워크의 구조를 Vanilla JS에 모방하여 모듈화된 구조를 설계했습니다.
 
 ```bash
